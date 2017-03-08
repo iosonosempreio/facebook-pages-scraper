@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Facebook Page ID Extractor</title>
 
     <!-- Bootstrap -->
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,6 +26,7 @@
         <div class="col-md-12">
           <h1>Facebook Page ID Extractor</h1>
           <h4><span class="label label-warning">Very experimental.</span></h4>
+          <p>Want to contribute? <a href="https://github.com/iosonosempreio/facebook-pages-scraper" target="_black"><i class="fa fa-github" aria-hidden="true"></i> Here's the repo</a>.</p>
         </div>
       </div>
       <div class="row">
@@ -33,11 +34,11 @@
           <form>
             <div class="form-group">
               <label for="access-token">Access Token (get yours <a href="https://developers.facebook.com/tools/explorer/" target="_blank">here</a>)</label>
-              <input id="access-token" class="form-control" type="text" name="access_token" value="">
+              <input id="access-token" class="form-control" type="text" name="access_token" placeholder="Your token">
             </div>
             <div class="form-group">
-              <label for="pages-links">Pages List (remove domain, e.g. <em>https://www.facebook.com/densitydesign/</em> <i class="fa fa-hand-o-right" aria-hidden="true"></i> <em>densitydesign</em>)></label>
-              <textarea id="pages-links" class="form-control" name="ids" rows="5"></textarea>
+              <label for="pages-links">Pages List (remove domain, e.g. <em>https://www.facebook.com/densitydesign/</em> <i class="fa fa-hand-o-right" aria-hidden="true"></i> <em>densitydesign</em>)</label>
+              <textarea id="pages-links" class="form-control" name="ids" rows="5" placeholder="Your list, a page for each line"></textarea>
             </div>
             
           </form>
@@ -55,6 +56,12 @@
           <button onclick="downloadData()" id="download-button" class="btn btn-success btn-block hidden">Download data</button>
         </div>
       </div>
+      <div class="row">
+        <div class="col-md-12" id="table-container">
+          <br/>
+          <p><small>Bootstrapped with love in the context of the <a href="https://digitalmethods.net/Dmi/FakeNewsSprint" target="_blank">Fake News Sprint</a>.</small></p>
+        </div>
+      </div>
     </div>    
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -62,7 +69,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./node_modules/file-saver/FileSaver.js"></script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="./node_modules/d3/build/d3.min.js"></script>
     <script src="https://use.fontawesome.com/28506796e6.js"></script>
     
     <script>
@@ -159,6 +166,16 @@
         var blob = new Blob([tsvtxt], {type: "data:text/tsv;charset=utf-8"});
         saveAs(blob, outputName);
       }
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-93236814-1', 'auto');
+      ga('send', 'pageview');
+
     </script>
   </body>
 </html>
